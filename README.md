@@ -36,6 +36,73 @@
 2. 运行`wind.js`
 3. 观察字母网格在风中的优雅舞动
 
+## 🧭 详细运行指南（小白向）
+
+适合完全没有前端经验的同学。三种方法任选其一：
+
+### 方法一：在线运行（零配置，最简单）
+1. 打开 p5.js 在线编辑器（搜索“p5js editor”或访问 `editor.p5js.org`）。
+2. 新建项目（File → New）。
+3. 打开左侧的 `sketch.js`，把本项目 `wind.js` 的全部代码复制进去。
+4. 将 `wind.jpg` 拖拽到左侧文件列表中（用于背景/纹理等资源）。
+5. 点击顶部 ▶ Run 按钮即可运行。
+
+小贴士：在线编辑器默认已经引入 p5.js，无需再添加 `<script>`。
+
+### 方法二：本地直接用浏览器打开（快）
+1. 在本项目根目录新建一个 `index.html` 文件，并粘贴以下内容：
+
+```html
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wind Letters</title>
+    <style>
+      html,body { margin:0; padding:0; background:#000; }
+      canvas { display:block; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  </head>
+  <body>
+    <script src="./wind.js"></script>
+  </body>
+  </html>
+```
+
+2. 确保 `index.html`、`wind.js`、`wind.jpg` 在同一文件夹：
+
+```
+D:\Work\js_project\
+  index.html
+  wind.js
+  wind.jpg
+```
+
+3. 双击打开 `index.html`（推荐用 Chrome/Edge）。若图片未显示或控制台报跨域错误，请使用下面“方法三”。
+
+### 方法三：本地小型服务器（推荐，最稳妥）
+在 Windows PowerShell 中进入项目目录后任选其一：
+
+- 若已安装 Python 3：
+```powershell
+python -m http.server 8000
+```
+  打开浏览器访问：`http://localhost:8000/index.html`
+
+- 若已安装 Node.js：
+```powershell
+npx http-server -c-1 -p 8080
+```
+  打开浏览器访问：`http://localhost:8080/index.html`
+
+### 常见问题（快速排查）
+- 空白屏/报错：按 F12 打开“控制台（Console）”，查看报错信息。
+- 找不到 p5：确认在 `index.html` 中先引入 `p5.min.js`，再引入 `wind.js`。
+- 找不到图片：确认 `wind.jpg` 路径与代码一致（示例中与 `index.html` 同目录）。
+- 双击打开没图：使用“方法三”启动本地服务器可避免本地文件跨域问题。
+
 ## ⚙️ 自定义参数
 
 在代码顶部，你可以调整以下参数来改变视觉效果：
